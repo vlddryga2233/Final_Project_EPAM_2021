@@ -13,6 +13,7 @@ using SportsStore.Models;
 
 
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace SportsStore {
     public class Startup {
@@ -54,6 +55,13 @@ namespace SportsStore {
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
             }
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
+            app.UseAuthentication();
 
             app.UseStaticFiles();
             app.UseSession();
