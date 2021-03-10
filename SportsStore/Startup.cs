@@ -61,7 +61,7 @@ namespace SportsStore {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
-            app.UseAuthentication();
+            app.UseHttpsRedirection();        
 
             app.UseStaticFiles();
             app.UseSession();
