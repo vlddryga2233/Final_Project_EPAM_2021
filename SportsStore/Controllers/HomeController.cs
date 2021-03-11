@@ -29,5 +29,9 @@ namespace SportsStore.Controllers {
                 },
                 CurrentCategory = category
             });
+        public ViewResult About()
+        {
+            return View("About");
+        }
     }
 }
